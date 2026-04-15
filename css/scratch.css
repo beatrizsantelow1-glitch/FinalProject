@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  background: #0b0b12;
+  color: #eaeaea;
+}
+
+/* NAV */
+.nav {
+  background: #111;
+  text-align: center;
+  padding: 12px;
+}
+
+.nav a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #111, #1a1a2e);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #d4af37;
+  margin: 0;
+}
+
+.hero p {
+  opacity: 0.85;
+}
+
+.hero a {
+  display: inline-block;
+  margin-top: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+/* MAIN LAYOUT */
+.playbill {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* BLOCKS */
+.block {
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+/* IMAGE */
+.image-block {
+  text-align: center;
+}
+
+.image-block img {
+  width: 280px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* HEADINGS */
+h2 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+/* LISTS */
+ol {
+  padding-left: 20px;
+}
+
+ul {
+  margin-top: 5px;
+}
+
+/* CENTER VIDEO */
+.center {
+  text-align: center;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 40px;
+}
+
+.footer a {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: bold;
+}

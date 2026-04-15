@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Personal Color Palette Matcher</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background: #f8f9fa;
+  }
+
+  /* NAVBAR */
+  .navbar {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    background: transparent;
+    padding-top: 20px;
+  }
+
+  .navbar-brand {
+    color: white !important;
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+
+  .navbar-nav {
+    margin-left: auto;
+  }
+
+  .navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 600;
+    margin-left: 15px;
+  }
+
+  /* HERO */
+  .hero {
+    height: 100vh;
+    background: url("/Images/Heading.png") no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+
+  .overlay {
+    background: rgba(0,0,0,0.55);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .overlay h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .overlay p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+
+  .main-content {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-box {
+    max-width: 600px;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  }
+
+  h1 {
+    text-align: center;
+    letter-spacing: 1.2px;
+    margin-bottom: 30px;
+    color: #5c3c10;
+    font-size: 1.8rem;
+  }
+
+  label {
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 8px;
+  }
+
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1.5px solid #ccc;
+  }
+
+  button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    background-color: #dca95c;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+  }
+
+  button:hover {
+    background-color: #b3812c;
+  }
+
+  .result-title {
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+    color: #794c0a;
+  }
+
+  .colors-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .color-cell {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+  }
+
+  .no-match {
+    margin-top: 25px;
+    font-style: italic;
+    color: #b04b4b;
+    text-align: center;
+  }
+
+  .top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0d6efd;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 999;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+
+    <a class="navbar-brand" href="../index.html">Portfolio</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="../index.html">HOME</a></li>
+        <li class="nav-item"><a class="nav-link" href="resume.html">RESUME</a></li>
+        <li class="nav-item"><a class="nav-link" href="accounting-game.html">ACCOUNTING GAME</a></li>
+        <li class="nav-item"><a class="nav-link" href="scratch.html">PHANTOM</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="overlay">
+    <h1>Color Stylist Game</h1>
+    <p>Let’s find out your color palette!</p>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+  <div class="container-box">
+
+    <h1>Personal Color Palette Matcher</h1>
+
+    <div style="margin-top: 15px; margin-bottom: 20px; text-align:center;">
+      <h5 style="font-weight:600; color:#5c3c10;">
+        🎨 How the Color Matching Works
+      </h5>
+
+      <ol style="text-align:left; display:inline-block; margin-top:10px;">
+        <li>Choose your features:
+          <ul>
+            <li>Skin tone</li>
+            <li>Hair color</li>
+            <li>Eye color</li>
+          </ul>
+        </li>
+
+        <li>Click “Find My Palette”</li>
+        <li>Get your recommended seasonal color group</li>
+      </ol>
+    </div>
+
+    <div style="max-width: 900px; margin: 50px auto; text-align:center;">
+      <h3 style="margin-bottom:15px;">🎥</h3>
+
+      <p style="color:gray; margin-bottom:20px;">
+        A relaxing background vibe while exploring the Color Stylist tool.
+      </p>
+
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+        <iframe 
+          src="https://www.youtube.com/embed/jfKfPfyJRdk"
+          frameborder="0"
+          allowfullscreen
+          style="position:absolute; top:0; left:0; width:100%; height:100%;">
+        </iframe>
+      </div>
+    </div>
+
+    <label for="skinSelect">Skin Tone</label>
+    <select id="skinSelect"></select>
+
+    <label for="hairSelect">Hair Color</label>
+    <select id="hairSelect"></select>
+
+    <label for="eyeSelect">Eye Color</label>
+    <select id="eyeSelect"></select>
+
+    <button id="matchPaletteBtn">Find My Palette</button>
+
+    <div id="resultTitle" class="result-title"></div>
+    <div id="paletteDisplay"></div>
+
+  </div>
+
+</div>
+
+<!-- TOP BUTTON -->
+<a href="#" class="top-btn">⬆ Top</a>
+
+<script>
+const data = {
+  spring: {
+    seasonName: "Spring",
+    baseName: "Yellow Base",
+    skinTones: ["Warm undertones", "Peachy", "Ivory", "Golden beige"],
+    hairColors: ["Golden blonde", "Light auburn", "Warm chestnut", "Strawberry blonde"],
+    eyeColors: ["Light blue", "Turquoise", "Light green", "Warm hazel"],
+    palette: ["#f9c1b5","#f9d4cd","#fce1cc","#f6d8ad","#eccfa1","#f9d4a3","#e2bc7d","#d4b26a","#da9e5b","#c18a5e"]
+  },
+  summer: {
+    seasonName: "Summer",
+    baseName: "Blue Base",
+    skinTones: ["Cool undertones", "Pinkish", "Light beige", "Porcelain"],
+    hairColors: ["Ash blonde", "Light brown with cool tones", "Ash brown"],
+    eyeColors: ["Grey", "Soft blue", "Cool green"],
+    palette: ["#a64663","#7c3f58","#692f4f","#594050","#524a53","#51556a","#505b80","#51607c"]
+  },
+  autumn: {
+    seasonName: "Autumn",
+    baseName: "Yellow Base",
+    skinTones: ["Warm undertones", "Golden beige", "Bronze", "Olive"],
+    hairColors: ["Rich golden brown", "Auburn", "Copper", "Dark brown with red/golden tones"],
+    eyeColors: ["Dark brown", "Olive green", "Hazel with golden flecks"],
+    palette: ["#d7b5a6","#a97a68","#895d43","#784e3f","#7d5746","#7c5d48","#8a6f5b","#8e7768"]
+  },
+  winter: {
+    seasonName: "Winter",
+    baseName: "Blue Base",
+    skinTones: ["Cool undertones", "Very pale porcelain", "Deep ebony", "Cool beige"],
+    hairColors: ["Dark brown", "Black", "Cool dark tones", "Platinum blonde (cool)"],
+    eyeColors: ["Dark brown", "Dark blue", "Icy blue", "Black"],
+    palette: ["#ffe1f0","#f9bfd6","#e2779f","#b43f6d","#7b2b3a","#6e2a3c","#5b2940","#6b1b3e"]
+  }
+};
+
+const skinSelect = document.getElementById("skinSelect");
+const hairSelect = document.getElementById("hairSelect");
+const eyeSelect = document.getElementById("eyeSelect");
+const matchPaletteBtn = document.getElementById("matchPaletteBtn");
+const resultTitle = document.getElementById("resultTitle");
+const paletteDisplay = document.getElementById("paletteDisplay");
+
+function populateSelects() {
+  skinSelect.innerHTML = "";
+  Object.values(data).forEach(season=>{
+    season.skinTones.forEach(skin=>{
+      const opt = document.createElement("option");
+      opt.value = skin;
+      opt.textContent = skin;
+      skinSelect.appendChild(opt);
+    });
+  });
+
+  hairSelect.innerHTML = "";
+  Object.values(data).forEach(season=>{
+    season.hairColors.forEach(hair=>{
+      const opt = document.createElement("option");
+      opt.value = hair;
+      opt.textContent = hair;
+      hairSelect.appendChild(opt);
+    });
+  });
+
+  eyeSelect.innerHTML = "";
+  Object.values(data).forEach(season=>{
+    season.eyeColors.forEach(eye=>{
+      const opt = document.createElement("option");
+      opt.value = eye;
+      opt.textContent = eye;
+      eyeSelect.appendChild(opt);
+    });
+  });
+}
+
+function findBestMatch(skin, hair, eye){
+  let best = null;
+  let maxMatches = -1;
+  for(const key in data){
+    const season = data[key];
+    let matches = 0;
+    if(season.skinTones.includes(skin)) matches++;
+    if(season.hairColors.includes(hair)) matches++;
+    if(season.eyeColors.includes(eye)) matches++;
+    if(matches > maxMatches){
+      best = season;
+      maxMatches = matches;
+    }
+  }
+  return best;
+}
+
+matchPaletteBtn.addEventListener("click", ()=>{
+  const best = findBestMatch(skinSelect.value, hairSelect.value, eyeSelect.value);
+
+  if(!best){
+    resultTitle.textContent = "";
+    paletteDisplay.innerHTML = `<p class="no-match">No matching palette found.</p>`;
+    return;
+  }
+
+  resultTitle.textContent = `${best.seasonName} (${best.baseName})`;
+  paletteDisplay.innerHTML = "";
+
+  const colorsGrid = document.createElement("div");
+  colorsGrid.className = "colors-grid";
+
+  best.palette.forEach(color=>{
+    const div = document.createElement("div");
+    div.className = "color-cell";
+    div.style.backgroundColor = color;
+    colorsGrid.appendChild(div);
+  });
+
+  paletteDisplay.appendChild(colorsGrid);
+});
+
+populateSelects();
+</script>
+
+</body>
+</html>
